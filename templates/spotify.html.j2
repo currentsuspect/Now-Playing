@@ -1,0 +1,164 @@
+<svg width="400" height="120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <foreignObject width="400" height="120">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <style>
+                .main {
+                    display: flex;
+                    height: 100%;
+                    padding: 12px 8px 8px 8px;
+                    align-items: flex-start;
+                }
+
+                .currentStatus {
+                    color: #1DB954;
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                .container {
+                    background: linear-gradient(135deg,
+                        rgb({{ songPalette[0][0] }}, {{ songPalette[0][1] }}, {{ songPalette[0][2] }}) 0%,
+                        rgb({{ barPalette[0][0] }}, {{ barPalette[0][1] }}, {{ barPalette[0][2] }}) 100%);
+                    border-radius: 8px;
+                    padding: 0;
+                    height: 100%;
+                }
+
+                .art {
+                    width: 80px;
+                    height: 80px;
+                    flex-shrink: 0;
+                    margin-right: 12px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                }
+
+                .content {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    min-width: 0;
+                    padding-top: 8px;
+                }
+
+                .song {
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    background: linear-gradient(90deg,
+                        rgb({{ songPalette[0][0] }}, {{ songPalette[0][1] }}, {{ songPalette[0][2] }}),
+                        rgb({{ songPalette[1][0] }}, {{ songPalette[1][1] }}, {{ songPalette[1][2] }}));
+                    background-size: 200% 100%;
+                    background-position: 0% 50%;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                    animation: gradient 8s ease infinite;
+                }
+
+                .artist {
+                    color: #b3b3b3;
+                    font-size: 14px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    background: linear-gradient(90deg,
+                        rgb({{ barPalette[1][0] }}, {{ barPalette[1][1] }}, {{ barPalette[1][2] }}),
+                        rgb({{ barPalette[2][0] }}, {{ barPalette[2][1] }}, {{ barPalette[2][2] }}));
+                    background-size: 200% 100%;
+                    background-position: 0% 50%;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                    animation: gradient 10s ease infinite;
+                }
+
+                .cover {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+
+                #bars {
+                    position: absolute;
+                    bottom: 8px;
+                    left: 8px;
+                    right: 8px;
+                    height: 20px;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                }
+
+                .bar {
+                    width: 3px;
+                    background: linear-gradient(to top,
+                        rgb({{ barPalette[0][0] }}, {{ barPalette[0][1] }}, {{ barPalette[0][2] }}),
+                        rgb({{ barPalette[1][0] }}, {{ barPalette[1][1] }}, {{ barPalette[1][2] }}),
+                        rgb({{ barPalette[2][0] }}, {{ barPalette[2][1] }}, {{ barPalette[2][2] }}),
+                        rgb({{ barPalette[3][0] }}, {{ barPalette[3][1] }}, {{ barPalette[3][2] }}));
+                    background-size: 100% 400%;
+                    background-position: 0% 100%;
+                    animation: gradient 4s ease infinite, pulse 1.5s ease-in-out infinite alternate;
+                    border-radius: 2px;
+                }
+
+                @keyframes gradient {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+
+                @keyframes pulse {
+                    0% {
+                        height: 4px;
+                        opacity: 0.6;
+                        transform: scaleY(0.8);
+                    }
+                    100% {
+                        height: 16px;
+                        opacity: 1;
+                        transform: scaleY(1);
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                div {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+                }
+
+                {{barCSS|safe}}
+            </style>
+
+            <div class="main">
+                {% if image %}
+                <a class="art" href="{{songURI}}" target="_blank">
+                    <img src="data:image/jpeg;base64,{{image}}" class="cover" />
+                </a>
+                {% endif %}
+
+                <div class="content">
+                    <div class="currentStatus">{{status}}</div>
+                    <a href="{{songURI}}" target="_blank">
+                        <div class="song">{{songName}}</div>
+                    </a>
+                    <a href="{{artistURI}}" target="_blank">
+                        <div class="artist">{{artistName}}</div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="bars">{{contentBar|safe}}</div>
+        </div>
+    </foreignObject>
+</svg>

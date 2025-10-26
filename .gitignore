@@ -1,0 +1,36 @@
+# Environment variables (contains sensitive Spotify credentials)
+.env
+.env.local
+.env.production
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Node modules (if any)
+node_modules/
+
+# Vercel
+.vercel/
+
+# Temporary files
+*.tmp
+*.temp
