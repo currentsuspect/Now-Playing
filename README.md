@@ -119,9 +119,9 @@ SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
 3. **Select this repository** from the list
 4. **Configure Environment Variables** in the Vercel dashboard:
    ```
-   SPOTIFY_CLIENT_ID = your_spotify_client_id
-   SPOTIFY_SECRET_ID = your_spotify_client_secret
-   SPOTIFY_REFRESH_TOKEN = your_spotify_refresh_token
+   SPOTIFY_CLIENT_ID = 46a1d230a6ce4bbfbf29581cc3dd2845
+   SPOTIFY_SECRET_ID = 5f43ba2b65a944b480d07983cb966daf
+   SPOTIFY_REFRESH_TOKEN = AQBSxkumVpWX4Npl64xKcPdKKm7SlXf1OSi9M691jLfonVodM67mYUX0NGMLyJhZAGOYcuVhyycF8enwbodrWGZkcdKfJ8U-h3Vk1VdbDdmcBoJclkLu_X_HQ5gwYyYYvd8
    ```
 5. **Deploy** - Vercel will automatically detect the Python/Flask setup
 6. **Copy your new URL** (e.g., `https://your-project-name.vercel.app`)
@@ -185,7 +185,12 @@ Once your code is on GitHub:
 1. **Go to [vercel.com](https://vercel.com)** and sign in
 2. **Click "Import Project"** and connect your GitHub
 3. **Select your Spotify widget repository**
-4. **Configure environment variables** in Vercel dashboard
+4. **Configure Environment Variables** in the Vercel dashboard:
+   ```
+   SPOTIFY_CLIENT_ID = 46a1d230a6ce4bbfbf29581cc3dd2845
+   SPOTIFY_SECRET_ID = 5f43ba2b65a944b480d07983cb966daf
+   SPOTIFY_REFRESH_TOKEN = AQBSxkumVpWX4Npl64xKcPdKKm7SlXf1OSi9M691jLfonVodM67mYUX0NGMLyJhZAGOYcuVhyycF8enwbodrWGZkcdKfJ8U-h3Vk1VdbDdmcBoJclkLu_X_HQ5gwYyYYvd8
+   ```
 5. **Deploy** - You're live! 🎉
 
 **Your public URL will be:** `https://your-repo-name.vercel.app`
